@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombres y paises</title>
+
+<!-- Ejemplo de la API:
+https://api.nationalize.io?name=jose
+devuelve esto:
+{"name":"jose","country":[{"country_id":"VE","probability":0.05786648552663837},{"country_id":"ES","probability":0.05710861497406078},{"country_id":"SV","probability":0.05705595515479477}]}
+si quiero verlo bonito, puedo hacerlo aca: https://jsonformatter.curiousconcept.com/ -->
+
+    <script type="text/javascript">
+
+async function getPaises ()
+{
+    // usamos la API https://nationalize.io/
+    const respuesta = await fetch("https://api.nationalize.io?name=jose");
+    // el 'await' indica que hay que esperar que esa sentencia se complete, luego 
+    // sigue al resto de sentencias.
+
+    console.log(respuesta);
+    if (!respuesta.ok)
+    {
+        let oops = "Ooops, no encontre nada.";
+        alert(oops);
+        throw new Error(oops);
+    }
+
+    // la respuesta de la API que estamos usando es un json, lo convierto en un Object
+    const jsonList = respuesta.json();
+
+    return jsonList;
+}
+
+function changeMessage(m) 
+{
+    document.getElementById("msg_01").innerHTML = m.country[0].country_id;
+}
+
+// el 'then' indica que cuando 'getPaises' este lista para devolver algo, entonces
+// se haga lo que se indica dentro del 'then'.
+getPaises().then(changeMessage);
+
+    </script>
+
+</head>
+<body>
+    <h1>Nombres y paises: probabilidades por Nombre</h1>
+    <p>Conozcamos cuales son las probabilidades de que un nombre venga de determinados paises</p>
+    <p id='msg_01'>Cargando...</p>
+</body>
+</html>
+

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placeholder Animado</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        * {
+    box-sizing: border-box;
+}
+
+:root {
+    --color-principal: silver;
+    --color-focus: rgb(32, 69, 170);
+}
+
+/* reposo */
+div {
+    margin-bottom: 10px;
+}
+
+span, input {
+    font-family: 'Roboto';
+    padding: 0;
+}
+
+label {
+    display: block;
+    width: 200px;
+    border: 2px solid var(--color-principal);
+    padding: 8px 10px;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 4px;
+    transition: .25s;
+}
+
+label input {
+    display: block;
+    width: 100%;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+label span {
+    color: var(--color-principal);
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    transition: .25s;
+}
+
+/* focus */
+label.focus {
+    border-color: var(--color-focus);
+}
+
+label span.focus {
+    color: var(--color-focus);
+}
+
+/* top */
+label span.top {
+    left: 3px;
+    top: -8px;
+    font-size: 12px;
+    background: white;
+    padding: 0 4px;
+}
+    </style>
+</head>
+<body>
+    <div>
+        <form action="#" method="post">
+            <div>
+                <label>
+                    <span>Usuario</span>
+                    <input type="text" autocomplete="off" name="usuario">
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    <span>Contraseña</span>
+                    <input type="password" autocomplete="off" name="clave">
+                </label>
+            </div>
+        </form>
+
+        <!-- <script src="form.js"></script> -->
+
+        <script>
+            const inputs = document.querySelectorAll('input');
+    inputs.forEach( input => {
+        // con function tradicional
+        input.onfocus = function (){
+            input.previousElementSibling.classList.add('top');
+            input.previousElementSibling.classList.add('focus');
+            input.parentNode.classList.add('focus');
+        }
+        
+        // con arrow function
+        input.onblur = () => {
+            let contenidoLength = input.value.trim();
+            if (contenidoLength == 0) {
+                input.previousElementSibling.classList.remove('top');
+            }
+            input.previousElementSibling.classList.remove('focus');
+            input.parentNode.classList.remove('focus');
+        }
+    });
+        </script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../img/laptop-from-above.jpg);
+    background-size: cover;
+}
+
+.menu {
+    font-size: 1.07rem;
+    background-color: #333;
+    margin: auto;
+    max-width: 55rem;
+    margin-top: 2.71rem;
+}
+
+.menu__horizontal {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+}
+
+.menu__opcion {
+    display: block;
+    padding: 0.81rem 1.08rem;
+    color:white;
+    text-decoration: none;
+}
+
+.menu__elemento-lista:hover {
+    background-color: red;
+}
+
+.menu__vertical {
+    position: absolute;
+    display: none;
+    list-style: none;
+    width: 10.87rem;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.menu__horizontal li:hover .menu__vertical {
+    display: block;
+}
+
+.menu__elemento-lista-vertical:hover {
+    background-color: black;
+}
+
+.menu__opcion-vertical {
+    display: block;
+    color: white;
+    padding: .81rem .81rem .81rem 1.08rem;
+    text-decoration: none;
+}

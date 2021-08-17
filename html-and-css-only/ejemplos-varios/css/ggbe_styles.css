@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --azul-principal: #0e1538;
+    --rojo-principal: #f00;
+    --lado-cuadrado: 21rem;
+}
+
+* {
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+.container {
+    /* height: initial; */
+    width: 100%;
+}
+
+.container__titulo {
+    color: white;
+    margin-bottom: 2rem;
+}
+
+.container__origen {
+    width: 100%;
+    color: rgba(85, 100, 116, 0.9);
+    margin-top: 2.5rem;
+    margin-right: 1rem;
+    text-align-last: right;
+    font-size: 0.7rem;
+}
+
+.container__caja {
+    border: 3px solid rgb(85, 80, 80);
+    border-radius: .3rem;
+}
+
+.container__caja--ggbe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: var(--azul-principal);
+}
+
+.container__enlace  {
+    position: relative;
+    width: 160px;
+    height: 60px;
+    display: inline-block;
+    background: #fff;
+    margin: 1rem;
+}
+
+.container__enlace::after,
+.container__enlace::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--rojo-principal);
+    transition: 0.5s;
+}
+
+.container a:nth-child(1):before,
+.container a:nth-child(1):after {
+    background: linear-gradient(45deg,#00ccff,var(--azul-principal),var(--azul-principal),#d400d4);
+}
+
+.container a:nth-child(2):before,
+.container a:nth-child(2):after {
+    background: linear-gradient(45deg,#00ccff,#0e1538,#0e1538,#00d42e);
+}
+
+.container__enlace:hover::before {
+    inset: -3px;
+}
+
+.container__enlace:hover::after {
+    inset: -3px;
+    filter: blur(10px);
+}
+
+.container__titulo-boton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    background: var(--azul-principal);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: white;
+    border: 1px solid #040a29;
+}
+

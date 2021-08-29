@@ -1,0 +1,6 @@
+// Importamos cada uno de los archivos que tenemos en las carpetas dentro de /scss
+@import 'base/base';
+@import 'config/variables';
+@import 'layout/layout';
+@import 'components/accordion';
+@import 'components/mediaqueries';
